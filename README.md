@@ -1,6 +1,8 @@
 ### Voice_Recoder
 
-+ Request runtime permissions(마이크접근)
++ Request runtime permissions(위험권한 : 마이크접근)  
+  권장되는 순서는 공식홈페이지에 나와있음(무조건적인건 아님!)
++ external storage
 + Custom View(음성 시각화)
 + MediaRecorder(음성 녹음)
 
