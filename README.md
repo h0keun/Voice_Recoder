@@ -6,6 +6,15 @@
 + Custom View(음성 시각화)
 + MediaRecorder(음성 녹음)
 
+### check list
++ enum class
++ companion object
++ set(value) {  
+  field = value  
+  ...  
+  }
+
+
 ### Step
 1. 녹음 전 👉 2. 녹음 중 👉 3. 녹음 후 👉 4. 재생 중  
 
