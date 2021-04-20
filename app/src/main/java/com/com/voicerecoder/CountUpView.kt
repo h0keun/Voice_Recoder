@@ -33,11 +33,15 @@ class CountUpView(
         handler?.removeCallbacks(countUpAction)
     }
 
+    fun clearCountTime() {
+        updateCountTime(0)
+    }
+
     @SuppressLint("SetTextI18n")
     private fun updateCountTime(countTimeSeconds: Int) {
         val minutes = countTimeSeconds / 60
         val seconds = countTimeSeconds % 60
 
-        text = "02d:02d".format(minutes, seconds)
+        text = "%02d:%02d".format(minutes, seconds)
     }
 }

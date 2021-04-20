@@ -23,7 +23,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/recordButton"
         app:layout_constraintEnd_toStartOf="@id/recordButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recordButton" />
+        app:layout_constraintTop_toTopOf="@+id/recordButton"
+        tools:ignore="HardcodedText" />
 
     <com.com.voicerecoder.CountUpView
         android:id="@+id/recordTimeTextView"
@@ -31,15 +32,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="00:00"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/recordButton"
         app:layout_constraintEnd_toEndOf="@+id/recordButton"
-        app:layout_constraintStart_toStartOf="@+id/recordButton" />
+        app:layout_constraintStart_toStartOf="@+id/recordButton"
+        tools:ignore="HardcodedText" />
 
     <com.com.voicerecoder.RecordButton
         android:id="@+id/recordButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="50dp"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
