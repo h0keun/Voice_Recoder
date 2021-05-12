@@ -39,10 +39,11 @@
   CountUpView.kt
   RecordButton.kt
   ```
-2. Custom View 만들기 [👉](https://developer.android.com/guide/topics/ui/custom-components?hl=ko)
+2. Custom View 만들기 [👉](https://developer.android.com/training/custom-views/custom-drawing?hl=ko)
 
-
+전반적으로 익숙치 않아서 어려움 공식문서 참고하고 코드참조해보면서 복습할것
 
 💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스  
 💡 .firstOrNull() ??, attr ??  
 💡 companion object [👉](https://www.bsidesoft.com/8187)  
+  const val ?
