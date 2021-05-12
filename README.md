@@ -43,6 +43,6 @@
 
 
 
-💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스 
-💡 .firstOrNull() ??, attr ??
-💡 companion object [👉](https://www.bsidesoft.com/8187)
+💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스  
+💡 .firstOrNull() ??, attr ??  
+💡 companion object [👉](https://www.bsidesoft.com/8187)  
