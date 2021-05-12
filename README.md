@@ -40,7 +40,7 @@
   RecordButton.kt
   ```
 2. Custom View 만들기 [👉](https://developer.android.com/training/custom-views/custom-drawing?hl=ko)  
-  전반적으로 익숙치 않아서 어려움 (음성파일 > 이미지시각화 하는 부분)  
+  전반적으로 익숙치 않아서 어려움 (음성파일 > 이미지시각화 하는 부분 : Visualizer)  
   공식문서 참고하고 코드참조해보면서 복습할것
   
 ### 권한부여하기 > [👉](https://developer.android.com/training/permissions/requesting?hl=ko#allow-system-manage-request-code)
