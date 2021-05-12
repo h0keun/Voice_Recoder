@@ -20,23 +20,26 @@
 
 기본적인 순서는 위와 같이 구성하며, [4.재생 중]일 때 "정지" 버튼을 누르면 [3.녹음 후] 돌아갈 수 있도록하고 "Reset" 버튼을 누르면 [1.녹음 전] 으로 돌아갈 수 있도록 한다.
 
-### [2021-05-12]
-+ Custom UI 그리기
-  - 1. View Class 만들기 [👉](https://developer.android.com/training/custom-views/create-view?hl=ko)
-    ```KOTLIN
-    // activity_main.xml
+## [2021-05-12]
+
+### Custom UI 그리기
+1. View Class 만들기 [👉](https://developer.android.com/training/custom-views/create-view?hl=ko)
+  ```KOTLIN
+  // activity_main.xml
     
-    <com.com.voicerecoder.SoundVisualizerView ... />
-    <com.com.voicerecoder.CountUpView ... />
-    <com.com.voicerecoder.RecordButton ... />
-    ```
-    위와 같이 각 뷰들에 해당하는 클래스들이 존재함!
-    ```KOTLIN
-    SoundVisualizerView.kt
-    CountUpView.kt
-    RecordButton.kt
-    ```
-  - 2. Custom View 만들기 [👉](https://developer.android.com/guide/topics/ui/custom-components?hl=ko)
+  <com.com.voicerecoder.SoundVisualizerView ... />
+  <com.com.voicerecoder.CountUpView ... />
+  <com.com.voicerecoder.RecordButton ... />
+  ```
+  각 뷰에해당하는 클래스 파일들을 생성
+  ```KOTLIN
+  // kotlin.kt
+  
+  SoundVisualizerView.kt
+  CountUpView.kt
+  RecordButton.kt
+  ```
+2. Custom View 만들기 [👉](https://developer.android.com/guide/topics/ui/custom-components?hl=ko)
 
 
 
