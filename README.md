@@ -49,9 +49,17 @@
   * SoundVisualizerView.kt
   ```
   
-### 권한부여하기 > [👉](https://developer.android.com/training/permissions/requesting?hl=ko#allow-system-manage-request-code)
-권한을 부여하는 부분은 딱히 코드상 생각하고 구현해야한다기 보다 공식문서 순서를 그대로 따르기 때문에  
-문서를 참조하는게 좋을듯함 
+#### Kotlin.class - Custom UI, MediaRecorder, MediaPlayer
++ MainActivity.kt
++ CountUpView
++ RecordButton
++ SoundVisualizerView
++ State
+  
+
+// 어렵댱  
+
+
 
 💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스  
 💡 .firstOrNull() ??, attr ??  
