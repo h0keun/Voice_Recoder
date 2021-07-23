@@ -17,13 +17,52 @@
 <img src="https://user-images.githubusercontent.com/63087903/119835634-f76ca400-bf3b-11eb-85d3-461f27a1e588.jpg" width="200" height="430"> <img src="https://user-images.githubusercontent.com/63087903/119835628-f63b7700-bf3b-11eb-8a89-12073bdc68cc.jpg" width="200" height="430">
 
 ### [2021-05-12]
-### [2021-07-14 ing~~]
+### [2021-07-23 ing~~]
 
 #### manifest
 + 오디오 녹음기능과, 외부 저장소 접근 권한 추가
   ```KOTLIN
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  ```
++ MainActivity.kt
+  ```KOTLIN
+  * 요청할 권한들을 담을 배열에 음성 녹은 관련 권한을 담아준다.
+    (이렇게 하는 이유는 보통 규모가 있는 앱에서는 단일권한이 아니라 여러 권한을 받아오기 때문에 배열에 담는다... 
+    고 생각했었는데 애초에 requestPermissions 메서드가 받는 파라미터가 배열값임) 
+    
+  private val requiredPermissions = arrayOf(
+      android.Manifest.permission.RECORD_AUDIO,
+      android.Manifest.permission.READ_EXTERNAL_STORAGE
+  )
+    
+  * onCreate() 에서 requestAudioPermission() 함수를 호출하고 함수 내부에서
+    requestPermissions 메서드 호출(파라미터로 권한을 담은 배열과, 리퀘스트 코드번호가 주어짐)
+    권한 요청에 따른 사용자의 답변은 onRequestPermissionsResult를 재정의 함으로서 처리한다.
+  
+  private fun requestAudioPermission(){
+      requestPermissions(requiredPermissions, REQUEST_RECORD_AUDIO_PERMISSION)
+  } 
+  
+  // REQUEST_RECORD_AUDIO_PERMISSION 는 companion object로 선언한 상수값 201 이다.
+
+  * onRequestPermmisionsResult
+
+  override fun onRequestPermissionsResult(
+      requestCode: Int,
+      permissions: Array<out String>,
+      grantResults: IntArray
+  ) {
+      super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+      val audioRecordPermissionGranted =
+          requestCode == REQUEST_RECORD_AUDIO_PERMISSION &&
+                  grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED
+
+      if(!audioRecordPermissionGranted){ // 요철 거절시 앱 종료
+          finish()
+      }
+  }
   ```
 
 #### layout.xml
@@ -57,8 +96,7 @@
 + State
   
 
-// 어렵댱  
-
+// 어렵댱ㅠㅠ
 
 
 💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스  
@@ -80,11 +118,13 @@ enum class State {
     ON_PLAYING = 녹음재생중 > 흰색 네모버튼 (ic_stop.xml) > 누르면 녹음재생을 그만둔다는 시각적 효과를 위해
     
 * RecordButton.kt
+// 버튼을 상속받아서 커스터 마이징
+// 뷰를 만들 때는 최소한 context와 attributeset 객체를 매개변수로 하는 생성자를 제공해야한다.
 
 class RecordButton(
     context: Context,
     attrs: AttributeSet
-): AppCompatImageButton(context, attrs) {
+): AppCompatImageButton(context, attrs) { 
 
     init {
         setBackgroundResource(R.drawable.shape_oval_button)
@@ -111,8 +151,8 @@ class RecordButton(
 * MainActivity.kt 에서 사용
 
 private var state = State.BEFORE_RECORDING
-    set(value) {
-        field = value
+    set(value) { // setter 설정
+        field = value // 실제 프로퍼티에 대입
         resetButton.isEnabled = (value == State.AFTER_RECORDING) ||
                 (value == State.ON_PLAYING)
         recordButton.updateIconWithState(value)
@@ -174,4 +214,14 @@ const로 선언을 하면 클래스의 프로퍼티나 지역변수로 할당할
 
 // 컴파일 : 소스코드를 작성하고 컴파일 이라는 과정을 통해 기계어 코드로 변환되어 실행 가능한 프로그램이 됨
 // 런타임 : 컴파일 과정을 마친 프로그램은 사용자에 의해 실행되어지며, 이러한 응용프로그램이 동작되어지는 때를 의미
+```
+💡 AppCompat ??
+```KOTLIN
+본 프로젝트 포함 이전 프로젝트에서도 Button대신 AppCompatButtom을 사용한 적이 있는데,
+당시에는 그저 buttom 속성이 부여가 안돼서 AppCompat을 사용했다고 적었었는데
+해당 내용에 대해 추가적으로 살펴보니 다음과 같은 답을 얻을수 있었다.
+
+🥕 안드로이드는 매년 새 버전이 출시되고 있고, 이에 따라 구버전의 호환성을 제공해야 한다.
+    AppCompat 클래스를 사용하면 기존 클래스를 래핑하여 이전 버전에서도 새 버전 출시된 것을
+    정상적으로 동작하게 해준다.
 ```
