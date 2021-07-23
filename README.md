@@ -19,7 +19,7 @@
 ### [2021-05-12]
 ### [2021-07-23 ing~~]
 
-#### manifest
+### manifest
 + 오디오 녹음기능과, 외부 저장소 접근 권한 추가
   ```KOTLIN
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -65,7 +65,7 @@
   }
   ```
 
-#### layout.xml
+### layout.xml
 + activity_main 에 Custom UI를 그리기 위한 View Class 만들기 [👉](https://developer.android.com/training/custom-views/create-view?hl=ko)
   ```KOTLIN
   // activity_main.xml
@@ -88,7 +88,7 @@
   * SoundVisualizerView.kt
   ```
   
-#### Kotlin.class - Custom UI, MediaRecorder, MediaPlayer
+### Kotlin.class - Custom UI, MediaRecorder, MediaPlayer
 + MainActivity.kt
 + CountUpView
 + RecordButton
@@ -99,8 +99,8 @@
 // 어렵댱ㅠㅠ
 
 
-💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스  
-   (본 프로젝트에서 enum class를 어떻게 사용했는지)  
+#### 💡 data class, inner class, enum class 등 코틀린의 여러가지 클래스  
++ (본 프로젝트에서 enum class를 어떻게 사용했는지)  
 ```KOTLIN
 * State.kt
 
@@ -161,7 +161,7 @@ private var state = State.BEFORE_RECORDING
 // set(value) {} 에서 field를 사용하는 이유에 대해서는 
 // 코틀린에서 Getter와 Setter를 다루는 부분을 참고하여 공부하면 좋을듯함!
 ```
-💡 attr ??  
+#### 💡 attr ??  
 ```KOTLIN
 * attr = attribute(속성, 옵션) 요정도의 의미로 해석하면 될듯함
 
@@ -171,14 +171,14 @@ custom view 만들 때 파라미터로 attr이 들어오며
 
 이부분에 대해서 추가적인 공부 필요함!@!
 ```
-💡 companion object [👉](https://www.bsidesoft.com/8187)  
+#### 💡 companion object [참조👉](https://www.bsidesoft.com/8187)  
    ```KOTLIN
    Java에서 static 사용하는 느낌?? 동작방식은 static 같이 보이지만 엄연한 차이가 존재하긴함
    
    이전 프로젝트인 timer 에서도 object객체생성에 대한 부분이 나왔던거 같은데
    확실하게 체크하기
    ```
-💡 val vs const val  
+#### 💡 val vs const val  
 ```KOTLIN
 * val은 런타임시 할당
 * val로 선언한 변수는 코틀린에서 프로퍼티로 get() 함수를 가지는 변수이다.
@@ -215,7 +215,7 @@ const로 선언을 하면 클래스의 프로퍼티나 지역변수로 할당할
 // 컴파일 : 소스코드를 작성하고 컴파일 이라는 과정을 통해 기계어 코드로 변환되어 실행 가능한 프로그램이 됨
 // 런타임 : 컴파일 과정을 마친 프로그램은 사용자에 의해 실행되어지며, 이러한 응용프로그램이 동작되어지는 때를 의미
 ```
-💡 AppCompat ??
+#### 💡 AppCompat ??
 ```KOTLIN
 본 프로젝트 포함 이전 프로젝트에서도 Button대신 AppCompatButtom을 사용한 적이 있는데,
 당시에는 그저 buttom 속성이 부여가 안돼서 AppCompat을 사용했다고 적었었는데
